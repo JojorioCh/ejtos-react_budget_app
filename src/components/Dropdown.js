@@ -40,33 +40,33 @@ const Dropdown = () => {
         style={dropdownStyle}
       >
         <option
-          value="USD"
-          style={hoveredOption === "USD" ? optionHoverStyle : optionStyle}
-          onMouseEnter={() => setHoveredOption("USD")}
+          value="$"
+          style={hoveredOption === "$" ? optionHoverStyle : optionStyle}
+          onMouseEnter={() => setHoveredOption("$")}
           onMouseLeave={() => setHoveredOption(null)}
         >
           $ Dollar
         </option>
         <option
-          value="GBP"
-          style={hoveredOption === "GBP" ? optionHoverStyle : optionStyle}
-          onMouseEnter={() => setHoveredOption("GBP")}
+          value="£"
+          style={hoveredOption === "£" ? optionHoverStyle : optionStyle}
+          onMouseEnter={() => setHoveredOption("£")}
           onMouseLeave={() => setHoveredOption(null)}
         >
           £ Pound
         </option>
         <option
-          value="EUR"
-          style={hoveredOption === "EUR" ? optionHoverStyle : optionStyle}
-          onMouseEnter={() => setHoveredOption("EUR")}
+          value="€"
+          style={hoveredOption === "€" ? optionHoverStyle : optionStyle}
+          onMouseEnter={() => setHoveredOption("€")}
           onMouseLeave={() => setHoveredOption(null)}
         >
           € Euro
         </option>
         <option
-          value="INR"
-          style={hoveredOption === "INR" ? optionHoverStyle : optionStyle}
-          onMouseEnter={() => setHoveredOption("INR")}
+          value="₹"
+          style={hoveredOption === "₹" ? optionHoverStyle : optionStyle}
+          onMouseEnter={() => setHoveredOption("₹")}
           onMouseLeave={() => setHoveredOption(null)}
         >
           ₹ Rupee

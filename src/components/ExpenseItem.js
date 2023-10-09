@@ -9,7 +9,10 @@ const ExpenseItem = (props) => {
   useEffect(() => {
     setCurrencySymbol(currency);
   }, [currency]);
-
+  if (!props.name) {
+    // If props.name is falsy (null, undefined, empty string, etc.), return null
+    return null;
+  }
   const handleDeleteExpense = () => {
     dispatch({
       type: "DELETE_EXPENSE",
@@ -41,6 +44,37 @@ const ExpenseItem = (props) => {
     });
   };
 
+  const buttonStyle = {
+    borderRadius: "50%", // Makes the button circular
+    width: "20px",
+    height: "20px",
+    backgroundColor: "green", // Green circle for the "+" button
+    color: "white",
+    border: "none",
+    cursor: "pointer",
+    fontSize: "20px", // Adjust font size
+    display: "flex",
+    alignItems: "center", // Center text vertically
+    justifyContent: "center",
+    marginTop: "-2px", // Adjust vertically as needed
+    marginLeft: "-2px", // Adjust horizontally as needed
+  };
+
+  const deleteButtonStyle = {
+    borderRadius: "50%", // Makes the button circular
+    width: "20px",
+    height: "20px",
+    backgroundColor: "red", // Red circle for the "-" button
+    color: "white",
+    border: "none",
+    cursor: "pointer",
+    fontSize: "20px", // Adjust font size
+    display: "flex",
+    alignItems: "center", // Center text vertically
+    justifyContent: "center",
+    marginTop: "-2px", // Adjust vertically as needed
+    marginLeft: "-2px", // Adjust horizontally as needed
+  };
   return (
     <tr>
       <td>{props.name}</td>
@@ -49,10 +83,20 @@ const ExpenseItem = (props) => {
         {props.cost}
       </td>
       <td>
-        <button onClick={() => increaseAllocation(props.name)}>+</button>
+        <button
+          style={buttonStyle}
+          onClick={() => increaseAllocation(props.name)}
+        >
+          +
+        </button>
       </td>
       <td>
-        <button onClick={() => decreaseAllocation(props.name)}>-</button>
+        <button
+          style={deleteButtonStyle}
+          onClick={() => decreaseAllocation(props.name)}
+        >
+          -
+        </button>
       </td>
       <td>
         <TiDelete size="1.5em" onClick={handleDeleteExpense}></TiDelete>
