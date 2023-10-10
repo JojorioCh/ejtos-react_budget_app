@@ -43,6 +43,9 @@ const AllocationForm = (props) => {
 
   return (
     <div>
+      <div>
+        <h3>Change allocation</h3>
+      </div>
       <div className="row">
         <div className="input-group mb-3" style={{ marginLeft: "2rem" }}>
           <div className="input-group-prepend">
@@ -93,18 +96,16 @@ const AllocationForm = (props) => {
           </select>
 
           <div className="input-group-prepend" style={{ marginLeft: "2rem" }}>
-            <span className="input-group-text">{currencySymbol}</span>
+            <span>{currencySymbol}</span>
+            <input
+              required="required"
+              type="number"
+              id="cost"
+              value={cost}
+              style={{ marginLeft: "2rem", size: 10 }}
+              onChange={(event) => setCost(event.target.value)}
+            ></input>
           </div>
-
-          <input
-            required="required"
-            type="number"
-            id="cost"
-            value={cost}
-            style={{ marginLeft: "2rem", size: 10 }}
-            onChange={(event) => setCost(event.target.value)}
-          ></input>
-
           <button
             className="btn btn-primary"
             onClick={submitEvent}

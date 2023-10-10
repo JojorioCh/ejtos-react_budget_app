@@ -27,11 +27,11 @@ const Dropdown = () => {
     color: "green",
   };
 
+  // List of available currencies
+  const currencies = ["$", "£", "€", "₹"];
+
   return (
-    <div className="mt-3">
-      <label htmlFor="currencySelect" className="form-label">
-        Currency:
-      </label>
+    <div className="alert alert-secondary">
       <select
         id="currencySelect"
         value={currency}
@@ -39,38 +39,18 @@ const Dropdown = () => {
         className="form-select"
         style={dropdownStyle}
       >
-        <option
-          value="$"
-          style={hoveredOption === "$" ? optionHoverStyle : optionStyle}
-          onMouseEnter={() => setHoveredOption("$")}
-          onMouseLeave={() => setHoveredOption(null)}
-        >
-          $ Dollar
-        </option>
-        <option
-          value="£"
-          style={hoveredOption === "£" ? optionHoverStyle : optionStyle}
-          onMouseEnter={() => setHoveredOption("£")}
-          onMouseLeave={() => setHoveredOption(null)}
-        >
-          £ Pound
-        </option>
-        <option
-          value="€"
-          style={hoveredOption === "€" ? optionHoverStyle : optionStyle}
-          onMouseEnter={() => setHoveredOption("€")}
-          onMouseLeave={() => setHoveredOption(null)}
-        >
-          € Euro
-        </option>
-        <option
-          value="₹"
-          style={hoveredOption === "₹" ? optionHoverStyle : optionStyle}
-          onMouseEnter={() => setHoveredOption("₹")}
-          onMouseLeave={() => setHoveredOption(null)}
-        >
-          ₹ Rupee
-        </option>
+        <option value={currency}>{`Currency (${currency})`}</option>
+        {currencies.map((c) => (
+          <option
+            key={c}
+            value={c}
+            style={hoveredOption === c ? optionHoverStyle : optionStyle}
+            onMouseEnter={() => setHoveredOption(c)}
+            onMouseLeave={() => setHoveredOption(null)}
+          >
+            {c}
+          </option>
+        ))}
       </select>
     </div>
   );
